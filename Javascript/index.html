@@ -11,7 +11,7 @@
         Birthday:<input id="birthday" type="date"></input><br>
         <button id="submit" type="button" onClick="submitFunction()">Accept</button>
 
-
+        <p id="return"></p>
     </div>
 
 
@@ -76,12 +76,15 @@
             console.log('current date as number', currentDate);
             console.log('timeDiff in miliseconds', timeDiff);
 
-            if (daysOld < 6570) {
-                document.write('You are probably not old enough to take this class!')
-            } else
-                document.write(fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!')
+            // if (daysOld < 6570) {
+            //     document.write('You are probably not old enough to take this class!')
+            // } else
+            //     document.write(fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!')
 
-                
+            if (daysOld < 6570) {
+                document.getElementById("return").innerHTML = "You are probably not old enough to take this class!";
+            } else
+                document.getElementById("return").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
         }
 
 
