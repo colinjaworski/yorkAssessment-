@@ -5,6 +5,7 @@
 
 
     <div>
+
         User Id:<input id="userId" value=""><br>
         First Name:<input id="fName"></input><br>
         Last Name:<input id="lName"></input><br>
@@ -14,15 +15,15 @@
         <p id="idVer"></p>
         <p id="firstName"></p>
         <p id="lastName"></p>
-        <p id="date"></p>
-        <p id="return"></p>
+        <p id="returnB-Day"></p>
 
     </div>
 
 
     <script>
 
-        let uid = ''; // these initialize variables as empty strings so they can be changed later
+        let str = ''; // these initialize variables as empty strings so they can be changed later
+        let uid = '';
         let fname = '';
         let lname = '';
         let birthday = '';
@@ -37,26 +38,15 @@
 
             if (fname === '') { // these check to see if input fields are empty
                 document.getElementById("firstName").innerHTML = 'Invalid fName'
-
             }
+
             if (lname === '') {
                 document.getElementById("lastName").innerHTML = 'Invalid lName'
-
-            }
-            if (birthday === '') {
-                document.getElementById("date").innerHTML = 'Invalid birthday'
             }
 
-            dateDiff(birthday); // these call other functions to run
+            dateDiff(); // these call other functions to run
             verifyUid();
             clearInputs();
-        }
-
-        function clearInputs() { // function clears input values 
-            document.getElementById('userId').value = '';
-            document.getElementById('fName').value = '';
-            document.getElementById('lName').value = '';
-            document.getElementById('birthday').value = '';
         }
 
         function verifyUid() { //function for input validation 
@@ -101,33 +91,38 @@
             }
         }
 
-        function dateDiff(birthday) { // function to check how old the person is in days
+        function dateDiff() { // function to check how old the person is in days
 
-            const currentDate = new Date().getTime();
-            const dateControl = document.querySelector('input[type="date"]').valueAsNumber;
+            const currentDate = new Date().getTime(); //sets current date in milliseconds
+            const dateControl = document.querySelector('input[type="date"]').valueAsNumber; // sets input time in milliseconds
             const timeDiff = (currentDate - dateControl); // sets value of days between dates in milliseconds
             const oneDay = 1000 * 60 * 60 * 24 // sets value for one day in milliseconds
-            const daysOld = Math.floor(timeDiff / oneDay) // age in days
-            const yearsOld = Math.floor(daysOld / 365); // age in years rounded
+            const daysOld = Math.floor(timeDiff / oneDay) // sets age in days
+            const yearsOld = Math.floor(daysOld / 365); // sets age in years rounded (for fun)
 
-            console.log('birthday: ', birthday);
-            console.log('Birthday as number', dateControl)
-            console.log('current date as number', currentDate);
-            console.log('timeDiff in miliseconds', timeDiff);
-
-
-            if (daysOld < 6570) {
-                document.getElementById("return").innerHTML = "You are probably not old enough to take this class!";
-            } else
-                document.getElementById("return").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
+            if (birthday === '') {
+                document.getElementById("returnB-Day").innerHTML = 'Invalid birthday'
+            } else {
+                if (daysOld < 6570) {
+                    document.getElementById("returnB-Day").innerHTML = "You are probably not old enough to take this class!";
+                } else
+                    document.getElementById("returnB-Day").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
+            }
         }
 
-        let str = ""; // this prints out the pyrimid of x's
+        function clearInputs() { // function clears input values 
 
-        for (let i = 0; i < 21; i++) {
+            document.getElementById('userId').value = '';
+            document.getElementById('fName').value = '';
+            document.getElementById('lName').value = '';
+            document.getElementById('birthday').value = '';
+        }
+
+        for (let i = 0; i < 21; i++) { // this is a for loop where we set value of i, ad a constraint, and finally increment its value
             // use something like document.write(str.padStart(i,"x") + "<br>");
-            document.write(str.padStart(i, "x") + "<br>");
+            document.write(str.padStart(i, "x") + "<br>"); // this prints each line from the loop on the DOM
         }
+
 
     </script>
 
