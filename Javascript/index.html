@@ -61,12 +61,39 @@
         }
         function verifyUid() {
 
-            console.log(uid.toUpperCase);
-  
-            for (i = 0; i < uid.length; i++) {
-              
+            const upperCaseId = uid.toUpperCase()
+            const lowerCaseId = uid.toLowerCase()
 
+            for (i = 0; i < upperCaseId.length; i++) {
+                for (i = 0; i < uid.length; i++) {
+                    if (upperCaseId[i] === uid[i]) {
+                        for (i = 0; i < lowerCaseId.length; i++) {
+                            for (i = 0; i < uid.length; i++) {
+                                if (lowerCaseId[i] === uid[i]) {
+                                    console.log('you made it through the loops!')
+                                } else {
+                                    console.log('you need a lowercase letter')
+                                }
+                            }
+                        }
+                    } else {
+                        console.log('you need an uppercase letter')
+                    }
+                }
             }
+
+            // for (i = 0; i < lowerCaseId.length; i++) {
+            //     for (i = 0; i < uid.length; i++) {
+            //         if (lowerCaseId[i] === uid[i]) {
+            //             console.log('there is a lowercase letter')
+            //         } else {
+            //             console.log('you need a lowercase letter')
+            //         }
+            //     }
+            // }
+
+
+            // ************** checks length ***********************
 
             if (uid.length < 7 || uid.length > 13) {
                 document.getElementById("idVer").innerHTML = "Invalid UserID"
