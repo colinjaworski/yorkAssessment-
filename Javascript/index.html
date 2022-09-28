@@ -12,6 +12,12 @@
         <button id="submit" type="button" onClick="submitFunction()">Accept</button>
 
         <p id="return"></p>
+        <p id="idVerification"></p>
+        <p id="firstName"></p>
+        <p id="lastName"></p>
+        <p id="date"></p>
+
+
     </div>
 
 
@@ -35,26 +41,28 @@
 
             // and document.getElementById().innerHTML to display results
 
-            /* 
-            console.log('The user id is: ', uid);
-            console.log('first name is: ', fname);
-            console.log('lastname is: ', lname);
-            console.log('birthday is: ', birthday);
-             */
+
+            // console.log('The user id is: ', uid);
+            // console.log('first name is: ', fname);
+            // console.log('lastname is: ', lname);
+            // console.log('birthday is: ', birthday);
+
 
             // and validate inputs here using if statements
 
-            /*
+
             if (fname === '') {
-                console.log('Invalid fname');
-            } 
+                document.getElementById("firstName").innerHTML = 'Invalid fName'
+
+            }
             if (lname === '') {
-                console.log('Invalid lname');
+                document.getElementById("lastName").innerHTML = 'Invalid lName'
+
             }
             if (birthday === '') {
-                console.log('Invalid birthday');
+                document.getElementById("date").innerHTML = 'Invalid birthday'
             }
-            */
+
 
             dateDiff(birthday);
 
@@ -76,10 +84,6 @@
             console.log('current date as number', currentDate);
             console.log('timeDiff in miliseconds', timeDiff);
 
-            // if (daysOld < 6570) {
-            //     document.write('You are probably not old enough to take this class!')
-            // } else
-            //     document.write(fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!')
 
             if (daysOld < 6570) {
                 document.getElementById("return").innerHTML = "You are probably not old enough to take this class!";
