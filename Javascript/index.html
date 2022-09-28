@@ -17,7 +17,6 @@
         <p id="date"></p>
         <p id="return"></p>
 
-
     </div>
 
 
@@ -28,8 +27,6 @@
         let lname = '';
         let birthday = '';
 
-
-
         function submitFunction() {
 
             // put your JavaScript code to read HTML inputs
@@ -38,9 +35,7 @@
             lname = document.getElementById("lName").value;
             birthday = document.getElementById("birthday").value;
 
-
             // validate inputs here using if statements
-
 
             if (fname === '') {
                 document.getElementById("firstName").innerHTML = 'Invalid fName'
@@ -53,52 +48,44 @@
             if (birthday === '') {
                 document.getElementById("date").innerHTML = 'Invalid birthday'
             }
-
-
             dateDiff(birthday);
             verifyUid();
-
         }
+
         function verifyUid() {
 
             const upperCaseId = uid.toUpperCase()
             const lowerCaseId = uid.toLowerCase()
 
-            // console.log(/[0-9]/.test(uid)) // could also use /\d/.test(uid)
-
-
-            if (/[0-9]/.test(uid)) {
-                if (/[a-zA-Z]/.test(uid)) { // checks to see if uid contains letters
-                    for (i = 0; i < upperCaseId.length; i++) { // loops through uppercase version of uid
-                        for (i = 0; i < uid.length; i++) {
-                            if (upperCaseId[i] === uid[i]) { // checks to see if uid has uppercase letter
-                                for (i = 0; i < lowerCaseId.length; i++) { // loops through lowercase version of uid
-                                    for (i = 0; i < uid.length; i++) {
-                                        if (lowerCaseId[i] === uid[i]) { //checks to see if uid has lowercase letter
-                                            console.log('you made it through the loops!')
-                                        } else {
-                                            console.log('you need a lowercase letter')
+            if (uid.length > 7 && uid.length < 13) { //checks to see if uid is 8-12 char long 
+                if (/[0-9]/.test(uid)) { // checks to see if uid contains a number, could also use /\d/.test(uid)
+                    if (/[a-zA-Z]/.test(uid)) { // checks to see if uid contains a letter
+                        for (i = 0; i < upperCaseId.length; i++) { // loops through uppercase version of uid
+                            for (i = 0; i < uid.length; i++) {
+                                if (upperCaseId[i] === uid[i]) { // checks to see if uid has uppercase letter
+                                    for (i = 0; i < lowerCaseId.length; i++) { // loops through lowercase version of uid
+                                        for (i = 0; i < uid.length; i++) {
+                                            if (lowerCaseId[i] === uid[i]) { //checks to see if uid has lowercase letter
+                                                console.log('SUCCESS')
+                                            } else {
+                                                console.log('you need a lowercase letter')
+                                            }
                                         }
                                     }
+                                } else {
+                                    console.log('you need an uppercase letter')
                                 }
-                            } else {
-                                console.log('you need an uppercase letter')
                             }
                         }
+                    } else {
+                        console.log('uid does not contain a letter')
                     }
-                } else {
-                    console.log('uid does not contain a letter')
-                }
-            } else console.log('uid does not contain a number')
-
-            // ************** checks length ***********************
-
-            if (uid.length < 7 || uid.length > 13) {
-                document.getElementById("idVer").innerHTML = "Invalid UserID"
+                } else console.log('uid does not contain a number')
             } else {
-                document.getElementById("idVer").innerHTML = ""
+                console.log('invalid uid length')
             }
         }
+
         //********************** days old function ******************************
 
         function dateDiff(birthday) {
@@ -121,7 +108,6 @@
             } else
                 document.getElementById("return").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
         }
-
 
         // ******************* this is for x's *****************************
 
