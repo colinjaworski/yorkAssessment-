@@ -64,34 +64,32 @@
             const upperCaseId = uid.toUpperCase()
             const lowerCaseId = uid.toLowerCase()
 
-            for (i = 0; i < upperCaseId.length; i++) {
-                for (i = 0; i < uid.length; i++) {
-                    if (upperCaseId[i] === uid[i]) {
-                        for (i = 0; i < lowerCaseId.length; i++) {
-                            for (i = 0; i < uid.length; i++) {
-                                if (lowerCaseId[i] === uid[i]) {
-                                    console.log('you made it through the loops!')
-                                } else {
-                                    console.log('you need a lowercase letter')
+            // console.log(/[0-9]/.test(uid)) // could also use /\d/.test(uid)
+
+
+            if (/[0-9]/.test(uid)) {
+                if (/[a-zA-Z]/.test(uid)) { // checks to see if uid contains letters
+                    for (i = 0; i < upperCaseId.length; i++) { // loops through uppercase version of uid
+                        for (i = 0; i < uid.length; i++) {
+                            if (upperCaseId[i] === uid[i]) { // checks to see if uid has uppercase letter
+                                for (i = 0; i < lowerCaseId.length; i++) { // loops through lowercase version of uid
+                                    for (i = 0; i < uid.length; i++) {
+                                        if (lowerCaseId[i] === uid[i]) { //checks to see if uid has lowercase letter
+                                            console.log('you made it through the loops!')
+                                        } else {
+                                            console.log('you need a lowercase letter')
+                                        }
+                                    }
                                 }
+                            } else {
+                                console.log('you need an uppercase letter')
                             }
                         }
-                    } else {
-                        console.log('you need an uppercase letter')
                     }
+                } else {
+                    console.log('uid does not contain a letter')
                 }
-            }
-
-            // for (i = 0; i < lowerCaseId.length; i++) {
-            //     for (i = 0; i < uid.length; i++) {
-            //         if (lowerCaseId[i] === uid[i]) {
-            //             console.log('there is a lowercase letter')
-            //         } else {
-            //             console.log('you need a lowercase letter')
-            //         }
-            //     }
-            // }
-
+            } else console.log('uid does not contain a number')
 
             // ************** checks length ***********************
 
