@@ -14,4 +14,4 @@
     to print 20 lines of Xs from 1 to 20 Xs.  The first line should have a single X and the 20th line should have 20 Xs.
 
 
-
+[] loop through UserId and check to see if elements have requirements, if not, print "Invalid UserID"

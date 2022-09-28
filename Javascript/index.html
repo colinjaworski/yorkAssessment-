@@ -11,11 +11,11 @@
         Birthday:<input id="birthday" type="date"></input><br>
         <button id="submit" type="button" onClick="submitFunction()">Accept</button>
 
-        <p id="return"></p>
-        <p id="idVerification"></p>
+        <p id="idVer"></p>
         <p id="firstName"></p>
         <p id="lastName"></p>
         <p id="date"></p>
+        <p id="return"></p>
 
 
     </div>
@@ -60,12 +60,18 @@
 
         }
         function verifyUid() {
-            // console.log('in verify Uid, uid is: ',uid);
-            console.log(uid.length);
-            if (uid.length > 7 && uid.length < 13) {
-                console.log('is right length');
+
+            console.log(uid.toUpperCase);
+  
+            for (i = 0; i < uid.length; i++) {
+              
+
+            }
+
+            if (uid.length < 7 || uid.length > 13) {
+                document.getElementById("idVer").innerHTML = "Invalid UserID"
             } else {
-                console.log('invalid ID');
+                document.getElementById("idVer").innerHTML = ""
             }
         }
         //********************** days old function ******************************
