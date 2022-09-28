@@ -29,7 +29,7 @@
         let birthday = '';
 
 
-        // write your JS functions here
+
         function submitFunction() {
 
             // put your JavaScript code to read HTML inputs
@@ -39,16 +39,7 @@
             birthday = document.getElementById("birthday").value;
 
 
-            // and document.getElementById().innerHTML to display results
-
-
-            // console.log('The user id is: ', uid);
-            // console.log('first name is: ', fname);
-            // console.log('lastname is: ', lname);
-            // console.log('birthday is: ', birthday);
-
-
-            // and validate inputs here using if statements
+            // validate inputs here using if statements
 
 
             if (fname === '') {
@@ -65,9 +56,18 @@
 
 
             dateDiff(birthday);
+            verifyUid();
 
         }
-
+        function verifyUid() {
+            // console.log('in verify Uid, uid is: ',uid);
+            console.log(uid.length);
+            if (uid.length > 7 && uid.length < 13) {
+                console.log('is right length');
+            } else {
+                console.log('invalid ID');
+            }
+        }
         //********************** days old function ******************************
 
         function dateDiff(birthday) {
