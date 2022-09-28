@@ -1,4 +1,4 @@
-[] create function to verify format of UserId (must contain uppercase, a lowercase, a number, and be 8 to 12 chars long)
+[X] create function to verify format of UserId (must contain uppercase, a lowercase, a number, and be 8 to 12 chars long)
 [X] create variables to hold data. uid is UserID, fname is first name, lname is last name, birthday is birthday and type date
 [X] write a function called “dateDiff” that accepts one date parameter and returns the number of days between the birthday provided and the current date
 [X] Create an “Accept” button to execute your functions
@@ -14,4 +14,4 @@
     to print 20 lines of Xs from 1 to 20 Xs.  The first line should have a single X and the 20th line should have 20 Xs.
 
 
-[] loop through UserId and check to see if elements have requirements, if not, print "Invalid UserID"
+[X] loop through UserId and check to see if elements have requirements, if not, print "Invalid UserID"

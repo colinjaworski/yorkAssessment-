@@ -22,22 +22,20 @@
 
     <script>
 
-        let uid = '';
+        let uid = ''; // these initialize variables as empty strings so they can be changed later
         let fname = '';
         let lname = '';
         let birthday = '';
+        let uidVerified = false;
 
-        function submitFunction() {
+        function submitFunction() { // function handles submit 
 
-            // put your JavaScript code to read HTML inputs
-            uid = document.getElementById("userId").value;
+            uid = document.getElementById("userId").value; // these capture values of input fields
             fname = document.getElementById("fName").value;
             lname = document.getElementById("lName").value;
             birthday = document.getElementById("birthday").value;
 
-            // validate inputs here using if statements
-
-            if (fname === '') {
+            if (fname === '') { // these check to see if input fields are empty
                 document.getElementById("firstName").innerHTML = 'Invalid fName'
 
             }
@@ -48,11 +46,20 @@
             if (birthday === '') {
                 document.getElementById("date").innerHTML = 'Invalid birthday'
             }
-            dateDiff(birthday);
+
+            dateDiff(birthday); // these call other functions to run
             verifyUid();
+            clearInputs();
         }
 
-        function verifyUid() {
+        function clearInputs() { // function clears input values 
+            document.getElementById('userId').value = '';
+            document.getElementById('fName').value = '';
+            document.getElementById('lName').value = '';
+            document.getElementById('birthday').value = '';
+        }
+
+        function verifyUid() { //function for input validation 
 
             const upperCaseId = uid.toUpperCase()
             const lowerCaseId = uid.toLowerCase()
@@ -67,6 +74,7 @@
                                         for (i = 0; i < uid.length; i++) {
                                             if (lowerCaseId[i] === uid[i]) { //checks to see if uid has lowercase letter
                                                 console.log('SUCCESS')
+                                                uidVerified = true;
                                             } else {
                                                 console.log('you need a lowercase letter')
                                             }
@@ -84,11 +92,16 @@
             } else {
                 console.log('invalid uid length')
             }
+            if (uidVerified === true) {
+                console.log('your verified !');
+                document.getElementById("idVer").innerHTML = ''
+                uidVerified = false;
+            } else {
+                document.getElementById("idVer").innerHTML = 'invalid userID'
+            }
         }
 
-        //********************** days old function ******************************
-
-        function dateDiff(birthday) {
+        function dateDiff(birthday) { // function to check how old the person is in days
 
             const currentDate = new Date().getTime();
             const dateControl = document.querySelector('input[type="date"]').valueAsNumber;
@@ -109,15 +122,12 @@
                 document.getElementById("return").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
         }
 
-        // ******************* this is for x's *****************************
+        let str = ""; // this prints out the pyrimid of x's
 
-        let str = "";
-        // write your JS Loop For here to print the Xs
         for (let i = 0; i < 21; i++) {
             // use something like document.write(str.padStart(i,"x") + "<br>");
             document.write(str.padStart(i, "x") + "<br>");
         }
-
 
     </script>
 
