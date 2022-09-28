@@ -38,10 +38,13 @@
 
             if (fname === '') { // these check to see if input fields are empty
                 document.getElementById("firstName").innerHTML = 'Invalid fName'
+            } else {
+                document.getElementById("firstName").innerHTML = ''
             }
-
             if (lname === '') {
                 document.getElementById("lastName").innerHTML = 'Invalid lName'
+            } else {
+                document.getElementById("lastName").innerHTML = ''
             }
 
             dateDiff(); // these call other functions to run
@@ -51,44 +54,61 @@
 
         function verifyUid() { //function for input validation 
 
-            const upperCaseId = uid.toUpperCase()
-            const lowerCaseId = uid.toLowerCase()
+            // const upperCaseId = uid.toUpperCase()
+            // const lowerCaseId = uid.toLowerCase()
 
-            if (uid.length > 7 && uid.length < 13) { //checks to see if uid is 8-12 char long 
-                if (/[0-9]/.test(uid)) { // checks to see if uid contains a number, could also use /\d/.test(uid)
-                    if (/[a-zA-Z]/.test(uid)) { // checks to see if uid contains a letter
-                        for (i = 0; i < upperCaseId.length; i++) { // loops through uppercase version of uid
-                            for (i = 0; i < uid.length; i++) {
-                                if (upperCaseId[i] === uid[i]) { // checks to see if uid has uppercase letter
-                                    for (i = 0; i < lowerCaseId.length; i++) { // loops through lowercase version of uid
-                                        for (i = 0; i < uid.length; i++) {
-                                            if (lowerCaseId[i] === uid[i]) { //checks to see if uid has lowercase letter
-                                                console.log('SUCCESS')
-                                                uidVerified = true;
-                                            } else {
-                                                console.log('you need a lowercase letter')
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    console.log('you need an uppercase letter')
-                                }
-                            }
-                        }
-                    } else {
-                        console.log('uid does not contain a letter')
-                    }
-                } else console.log('uid does not contain a number')
-            } else {
-                console.log('invalid uid length')
-            }
-            if (uidVerified === true) {
-                console.log('your verified !');
+            let length = false;
+            let upperCase = false;
+            let lowerCase = false;
+            let number = false;
+
+            if (uid.length > 7 && uid.length < 13) { length = true };
+            if (/[0-9]/.test(uid)) { number = true };
+            if (/[a-z]/.test(uid)) { lowerCase = true };
+            if (/[A-Z]/.test(uid)) { upperCase = true };
+
+            if (length && number && lowerCase && upperCase) {
                 document.getElementById("idVer").innerHTML = ''
-                uidVerified = false;
+
             } else {
                 document.getElementById("idVer").innerHTML = 'invalid userID'
             }
+
+            // if (uid.length > 7 && uid.length < 13) { //checks to see if uid is 8-12 char long 
+            //     if (/[0-9]/.test(uid)) { // checks to see if uid contains a number, could also use /\d/.test(uid)
+            //         if (/[a-zA-Z]/.test(uid)) { // checks to see if uid contains a letter
+            //             for (i = 0; i < upperCaseId.length; i++) { // loops through uppercase version of uid
+            //                 for (i = 0; i < uid.length; i++) {
+            //                     if (upperCaseId[i] === uid[i]) { // checks to see if uid has uppercase letter
+            //                         for (i = 0; i < lowerCaseId.length; i++) { // loops through lowercase version of uid
+            //                             for (i = 0; i < uid.length; i++) {
+            //                                 if (lowerCaseId[i] === uid[i]) { //checks to see if uid has lowercase letter
+            //                                     console.log('SUCCESS')
+            //                                     uidVerified = true;
+            //                                 } else {
+            //                                     console.log('you need a lowercase letter')
+            //                                 }
+            //                             }
+            //                         }
+            //                     } else {
+            //                         console.log('you need an uppercase letter')
+            //                     }
+            //                 }
+            //             }
+            //         } else {
+            //             console.log('uid does not contain a letter')
+            //         }
+            //     } else console.log('uid does not contain a number')
+            // } else {
+            //     console.log('invalid uid length')
+            // }
+            // if (uidVerified === true) {
+            //     console.log('your verified !');
+            //     document.getElementById("idVer").innerHTML = ''
+            //     uidVerified = false;
+            // } else {
+            //     document.getElementById("idVer").innerHTML = 'invalid userID'
+            // }
         }
 
         function dateDiff() { // function to check how old the person is in days
