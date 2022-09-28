@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+    <div>
+        User Id:<input id="userId" value=""><br>
+        First Name:<input id="fName"></input><br>
+        Last Name:<input id="lName"></input><br>
+        Birthday:<input id="birthday" type="date"></input><br>
+        <button id="submit" type="button" onClick="submitFunction()">Accept</button>
+
+
+    </div>
+
+
+    <script>
+
+        let uid = '';
+        let fname = '';
+        let lname = '';
+        let birthday = '';
+
+
+        // write your JS functions here
+        function submitFunction() {
+
+            // put your JavaScript code to read HTML inputs
+            uid = document.getElementById("userId").value;
+            fname = document.getElementById("fName").value;
+            lname = document.getElementById("lName").value;
+            birthday = document.getElementById("birthday").value;
+
+
+            // and document.getElementById().innerHTML to display results
+
+            /* 
+            console.log('The user id is: ', uid);
+            console.log('first name is: ', fname);
+            console.log('lastname is: ', lname);
+            console.log('birthday is: ', birthday);
+             */
+
+            // and validate inputs here using if statements
+
+            /*
+            if (fname === '') {
+                console.log('Invalid fname');
+            } 
+            if (lname === '') {
+                console.log('Invalid lname');
+            }
+            if (birthday === '') {
+                console.log('Invalid birthday');
+            }
+            */
+
+            dateDiff(birthday);
+
+        }
+
+        //********************** days old function ******************************
+
+        function dateDiff(birthday) {
+
+            const currentDate = new Date().getTime();
+            const dateControl = document.querySelector('input[type="date"]').valueAsNumber;
+            const timeDiff = (currentDate - dateControl); // sets value of days between dates in milliseconds
+            const oneDay = 1000 * 60 * 60 * 24 // sets value for one day in milliseconds
+            const daysOld = Math.floor(timeDiff / oneDay) // age in days
+            const yearsOld = Math.floor(daysOld / 365); // age in years rounded
+
+            console.log('birthday: ', birthday);
+            console.log('Birthday as number', dateControl)
+            console.log('current date as number', currentDate);
+            console.log('timeDiff in miliseconds', timeDiff);
+
+            if (daysOld < 6570) {
+                document.write('You are probably not old enough to take this class!')
+            } else
+                document.write(fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!')
+
+                
+        }
+
+
+        // ******************* this is for x's *****************************
+
+        let str = "";
+        // write your JS Loop For here to print the Xs
+        for (let i = 0; i < 21; i++) {
+            // use something like document.write(str.padStart(i,"x") + "<br>");
+            document.write(str.padStart(i, "x") + "<br>");
+        }
+
+
+    </script>
+
+</body>
+
+</html>

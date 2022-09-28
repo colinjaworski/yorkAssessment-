@@ -1,0 +1,17 @@
+[] create function to verify format of UserId (must contain uppercase, a lowercase, a number, and be 8 to 12 chars long)
+[X] create variables to hold data. uid is UserID, fname is first name, lname is last name, birthday is birthday and type date
+[] write a function called “dateDiff” that accepts one date parameter and returns the number of days between the birthday provided and the current date
+[X] Create an “Accept” button to execute your functions
+    [] If the UserID does not pass your verification, then print “Invalid UserID”
+    [X] If the fname, lname, or birthday fields are empty then print “Invalid fname” etc…
+    [X] Print “fname lname you have been breathing for ### days!” where ### is the number returned by your dateDiff() function.  
+        Remember to convert milliseconds to days and only return the integer (whole) number of days.
+    [X] If the number of days is less than (365*18) then print “You are probably not old enough to take this class!”
+    [] Use document.getElementById().innerHtml to display results and information messages.
+[X] Create a “Loop For” that loops 20 times and uses code similar to:
+    let str = "";
+    str = str.padStart(i,”x”); // i is the loop counter
+    to print 20 lines of Xs from 1 to 20 Xs.  The first line should have a single X and the 20th line should have 20 Xs.
+
+
+
