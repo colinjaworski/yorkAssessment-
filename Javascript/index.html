@@ -52,40 +52,48 @@
             clearInputs();
         }
 
+
         function verifyUid() { //function for input validation 
 
             let length = false;
-            let upperCase = false;
-            let lowerCase = false;
+            let isUpperCase = false;
+            let isLowerCase = false;
             let isNumber = false;
 
 
             if (uid.length > 7 && uid.length < 13) { length = true }; // checks length
 
-            for (let i = 0; i < uid.length; i++) {
+            for (let i = 0; i < uid.length; i++) { // checks if ID is number
                 if (!isNaN(uid[i])) {
                     isNumber = true;
                     break;
                 }
             }
 
+            for (let i = 0; i < uid.length; i++) { // checks if ID has lowercase letter in it
+                if (uid[i].toLowerCase() === uid[i] && uid[i].toUpperCase() !== uid[i]) {
+                    isLowerCase = true;
+                    break;
+                }
 
 
 
-            /* 
-            if (uid.length > 7 && uid.length < 13) { length = true };
-            if (/[0-9]/.test(uid)) { isNumber = true };
-            if (/[a-z]/.test(uid)) { lowerCase = true };
-            if (/[A-Z]/.test(uid)) { upperCase = true };
+                /* 
+                if (uid.length > 7 && uid.length < 13) { length = true };
+                if (/[0-9]/.test(uid)) { isNumber = true };
+                if (/[a-z]/.test(uid)) { isLowerCase = true };
+                if (/[A-Z]/.test(uid)) { isUpperCase = true };
+                */
 
-            if (length && number && lowerCase && upperCase) {
-                document.getElementById("idVer").innerHTML = ''
+                if (length && number && lowerCase && upperCase) {
+                    document.getElementById("idVer").innerHTML = ''
 
-            } else {
-                document.getElementById("idVer").innerHTML = 'invalid userID'
+                } else {
+                    document.getElementById("idVer").innerHTML = 'invalid userID'
+                }
+
+
             }
-            */
-
         }
 
         function dateDiff() { // function to check how old the person is in days
