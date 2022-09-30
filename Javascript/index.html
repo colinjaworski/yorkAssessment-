@@ -11,6 +11,7 @@
         Last Name:<input id="lName"></input><br>
         Birthday:<input id="birthday" type="date"></input><br>
         <button id="submit" type="button" onClick="submitFunction()">Accept</button>
+        <button onClick="testBirthday()">Test Birthday</button>
 
         <p id="idVer"></p>
         <p id="firstName"></p>
@@ -28,6 +29,7 @@
         let lname = '';
         let birthday = '';
         let uidVerified = false;
+
 
         function submitFunction() { // function handles submit 
 
@@ -95,8 +97,9 @@
         function dateDiff() { // function to check how old the person is in days
 
             const currentDate = new Date().getTime(); //sets current date in milliseconds
-            const dateControl = document.querySelector('input[type="date"]').valueAsNumber; // sets input time in milliseconds
-            const timeDiff = (currentDate - dateControl); // sets value of days between dates in milliseconds
+            // const dateControl = document.querySelector('input[type="date"]').valueAsNumber; <---- another way to capture a value in an input field
+            birthday = document.getElementById("birthday").valueAsNumber;
+            const timeDiff = (currentDate - birthday); // sets value of days between dates in milliseconds
             const oneDay = 1000 * 60 * 60 * 24 // sets value for one day in milliseconds
             const daysOld = Math.floor(timeDiff / oneDay) // sets age in days
             const yearsOld = Math.floor(daysOld / 365); // sets age in years rounded (for fun)
