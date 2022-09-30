@@ -63,26 +63,18 @@
 
             if (uid.length > 7 && uid.length < 13) { length = true }; // checks length
 
-            for (let i = 0; i < uid.length; i++) { // checks if ID is number
+            for (let i = 0; i < uid.length; i++) { 
                 if (!isNaN(uid[i])) {
-                    isNumber = true;
-                    break;
+                    isNumber = true;                    
                 }
-            }
-
-            for (let i = 0; i < uid.length; i++) { // checks if ID has lowercase letter in it
                 if (uid[i].toLowerCase() === uid[i] && uid[i].toUpperCase() !== uid[i]) {
-                    isLowerCase = true;
-                    break;
+                    isLowerCase = true;                    
+                }
+                if (uid[i] === uid[i].toUpperCase() && uid[i] !== uid[i].toLowerCase()) {
+                    isUpperCase = true;                
                 }
             }
 
-            for (let i = 0; i < uid.length; i++) { // checks if ID has uppercase letter in it
-                if (uid[i] === uid[i].toUpperCase() && uid[i] !== uid[i].toLowerCase()) {
-                    isUpperCase = true;
-                    break;
-                } 
-            }
 
 
             /* 
@@ -92,14 +84,14 @@
             if (/[A-Z]/.test(uid)) { isUpperCase = true };
             */
 
-            if (length && number && lowerCase && upperCase) {
-                document.getElementById("idVer").innerHTML = ''
+            if (length && isNumber && isLowerCase && isUpperCase) {
+                document.getElementById("idVer").innerHTML = '';
+                alert('Success')
 
             } else {
                 document.getElementById("idVer").innerHTML = 'invalid userID'
+
             }
-
-
 
         }
 
