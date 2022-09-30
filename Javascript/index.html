@@ -57,19 +57,25 @@
             let length = false;
             let upperCase = false;
             let lowerCase = false;
-            let number = false;
+            let isNumber = false;
 
 
-            if (uid.length > 7 && uid.length < 13) { length = true };
+            if (uid.length > 7 && uid.length < 13) { length = true }; // checks length
 
             for (let i = 0; i < uid.length; i++) {
-                console.log('uid[i] ', uid[i]);
+                console.log(uid[i])
+                if (isNaN(uid[i]) !== true) {
+                    isNumber = true;
+                    break;
+                }
             }
+
+
 
 
             /* 
             if (uid.length > 7 && uid.length < 13) { length = true };
-            if (/[0-9]/.test(uid)) { number = true };
+            if (/[0-9]/.test(uid)) { isNumber = true };
             if (/[a-z]/.test(uid)) { lowerCase = true };
             if (/[A-Z]/.test(uid)) { upperCase = true };
 
