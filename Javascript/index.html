@@ -47,7 +47,6 @@
                 document.getElementById("lastName").innerHTML = ''
             }
 
-            dateDiff(); // these call other functions to run
             verifyUid();
             clearInputs();
         }
@@ -63,19 +62,17 @@
 
             if (uid.length > 7 && uid.length < 13) { length = true }; // checks length
 
-            for (let i = 0; i < uid.length; i++) { 
+            for (let i = 0; i < uid.length; i++) {
                 if (!isNaN(uid[i])) {
-                    isNumber = true;                    
+                    isNumber = true;
                 }
                 if (uid[i].toLowerCase() === uid[i] && uid[i].toUpperCase() !== uid[i]) {
-                    isLowerCase = true;                    
+                    isLowerCase = true;
                 }
                 if (uid[i] === uid[i].toUpperCase() && uid[i] !== uid[i].toLowerCase()) {
-                    isUpperCase = true;                
+                    isUpperCase = true;
                 }
             }
-
-
 
             /* 
             if (uid.length > 7 && uid.length < 13) { length = true };
@@ -86,11 +83,10 @@
 
             if (length && isNumber && isLowerCase && isUpperCase) {
                 document.getElementById("idVer").innerHTML = '';
-                alert('Success')
+                dateDiff();
 
             } else {
                 document.getElementById("idVer").innerHTML = 'invalid userID'
-
             }
 
         }
