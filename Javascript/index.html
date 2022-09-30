@@ -63,8 +63,7 @@
             if (uid.length > 7 && uid.length < 13) { length = true }; // checks length
 
             for (let i = 0; i < uid.length; i++) {
-                console.log(uid[i])
-                if (isNaN(uid[i]) !== true) {
+                if (!isNaN(uid[i])) {
                     isNumber = true;
                     break;
                 }
