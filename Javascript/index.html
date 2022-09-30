@@ -77,23 +77,30 @@
                 }
             }
 
-
-                /* 
-                if (uid.length > 7 && uid.length < 13) { length = true };
-                if (/[0-9]/.test(uid)) { isNumber = true };
-                if (/[a-z]/.test(uid)) { isLowerCase = true };
-                if (/[A-Z]/.test(uid)) { isUpperCase = true };
-                */
-
-                if (length && number && lowerCase && upperCase) {
-                    document.getElementById("idVer").innerHTML = ''
-
-                } else {
-                    document.getElementById("idVer").innerHTML = 'invalid userID'
-                }
+            for (let i = 0; i < uid.length; i++) { // checks if ID has uppercase letter in it
+                if (uid[i] === uid[i].toUpperCase() && uid[i] !== uid[i].toLowerCase()) {
+                    isUpperCase = true;
+                    break;
+                } 
+            }
 
 
-            
+            /* 
+            if (uid.length > 7 && uid.length < 13) { length = true };
+            if (/[0-9]/.test(uid)) { isNumber = true };
+            if (/[a-z]/.test(uid)) { isLowerCase = true };
+            if (/[A-Z]/.test(uid)) { isUpperCase = true };
+            */
+
+            if (length && number && lowerCase && upperCase) {
+                document.getElementById("idVer").innerHTML = ''
+
+            } else {
+                document.getElementById("idVer").innerHTML = 'invalid userID'
+            }
+
+
+
         }
 
         function dateDiff() { // function to check how old the person is in days
