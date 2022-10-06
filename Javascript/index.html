@@ -35,7 +35,7 @@
             uid = document.getElementById("userId").value; // these capture values of input fields
             fname = document.getElementById("fName").value;
             lname = document.getElementById("lName").value;
-            
+
 
             if (fname === '') { // these check to see if input fields are empty
                 document.getElementById("firstName").innerHTML = 'Invalid fName'
@@ -110,16 +110,11 @@
             const daysOld = Math.floor(timeDiff / oneDay) // sets age in days
             const yearsOld = Math.floor(daysOld / 365); // sets age in years rounded (for fun)
 
-            if (birthday === '') {
-                document.getElementById("returnB-Day").innerHTML = 'Invalid birthday'
-            } else {
-                if (daysOld < 6570) {
-                    document.getElementById("returnB-Day").innerHTML = "You are probably not old enough to take this class!";
-                } else
-                    document.getElementById("returnB-Day").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
-                    console.log(yearsOld);
-                    console.log('birthday', birthday)
-            }
+
+            if (daysOld < 6570) {
+                document.getElementById("returnB-Day").innerHTML = "You are probably not old enough to take this class!";
+            } else
+                document.getElementById("returnB-Day").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
         }
 
         function clearInputs() { // function clears input values 
