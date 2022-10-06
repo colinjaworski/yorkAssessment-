@@ -36,7 +36,6 @@
             fname = document.getElementById("fName").value;
             lname = document.getElementById("lName").value;
 
-
             if (fname === '') { // these check to see if input fields are empty
                 document.getElementById("firstName").innerHTML = 'Invalid fName'
             } else {
@@ -76,7 +75,6 @@
 
             if (length && isNumber && isLowerCase && isUpperCase) {
                 document.getElementById("idVer").innerHTML = ''; // clears element in p-tag on DOM with id="idVer"
-                console.log('birthday', birthday);
 
 
             } else {
@@ -86,7 +84,6 @@
 
             if (birthday === '' || birthday === NaN) {
             } else {
-                console.log('birthday !== NaN', birthday)
                 dateDiff();
             }
             /*
