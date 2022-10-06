@@ -35,7 +35,7 @@
             uid = document.getElementById("userId").value; // these capture values of input fields
             fname = document.getElementById("fName").value;
             lname = document.getElementById("lName").value;
-            birthday = document.getElementById("birthday").value;
+            
 
             if (fname === '') { // these check to see if input fields are empty
                 document.getElementById("firstName").innerHTML = 'Invalid fName'
@@ -58,6 +58,7 @@
             let isUpperCase = false;
             let isLowerCase = false;
             let isNumber = false;
+            birthday = document.getElementById("birthday").value;
 
             if (uid.length > 7 && uid.length < 13) { length = true }; // checks length
 
@@ -75,13 +76,19 @@
 
             if (length && isNumber && isLowerCase && isUpperCase) {
                 document.getElementById("idVer").innerHTML = ''; // clears element in p-tag on DOM with id="idVer"
-                dateDiff();
+                console.log('birthday', birthday);
+
 
             } else {
                 document.getElementById("idVer").innerHTML = 'invalid userID';
                 document.getElementById("returnB-Day").innerHTML = ''; // clears return message on DOM
             }
 
+            if (birthday === '' || birthday === NaN) {
+            } else {
+                console.log('birthday !== NaN', birthday)
+                dateDiff();
+            }
             /*
             BELOW IS AN ALTERNATE WAY OF VALIDATING ID WITHOUT USING A LOOP
              
@@ -110,6 +117,8 @@
                     document.getElementById("returnB-Day").innerHTML = "You are probably not old enough to take this class!";
                 } else
                     document.getElementById("returnB-Day").innerHTML = fname + ' ' + lname + ' you have been breathing for ' + daysOld + ' days!';
+                    console.log(yearsOld);
+                    console.log('birthday', birthday)
             }
         }
 
